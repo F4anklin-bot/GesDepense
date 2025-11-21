@@ -74,7 +74,7 @@ router.post('/login', (req, res) => {
 
         if (result.length === 0){
             res.status(404).json({
-                message : "Aucun utilisateur trouvé"
+                message : "Identifiants invalides"
             })
         } else {
             const user = result[0];
@@ -83,7 +83,7 @@ router.post('/login', (req, res) => {
 
             if (!equal){
                 res.status(400).json({
-                    message : "Les mots de passe ne correspondent pas"
+                    message : "Identifiants invalides"
                 })
             } 
 
