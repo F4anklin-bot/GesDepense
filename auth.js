@@ -59,7 +59,7 @@ router.post('/register', async (req, res) => {
 });
 
 
-router.post('login', (req, res) => {
+router.post('/login', (req, res) => {
     const {username, secret} = req.body;
 
 
@@ -85,11 +85,11 @@ router.post('login', (req, res) => {
                 res.status(400).json({
                     message : "Les mots de passe ne correspondent pas"
                 })
-            } else {
-                res.status(200).json({
-                    message : "Utilisateur connecté avec succès"
-                })
-            }
+            } 
+
+            res.status(200).json({
+                message : "Vous êtes connectés"
+            })
         }
     })
 })
