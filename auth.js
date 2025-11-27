@@ -4,7 +4,7 @@ const bd = require('./bd');
 const bcrypt = require("bcrypt");
 const session = require("express-session");
 
-
+//REGISTER
 router.post('/register', async (req, res) => {
     const { username, secret } = req.body;
 
@@ -61,6 +61,7 @@ router.post('/register', async (req, res) => {
 });
 
 
+//LOGIN
 router.post('/login', (req, res) => {
     const {username, secret} = req.body;
 
@@ -89,8 +90,15 @@ router.post('/login', (req, res) => {
                 })
             } 
 
+            //CREATION DE SESSION
+            req.session.user({
+                id : user.userid,
+                username : user.username
+            })
+
             res.status(200).json({
-                message : "Vous êtes connectés"
+                message : "Vous êtes connectés",
+                user : req.session.user
             })
         }
     })
