@@ -91,10 +91,10 @@ router.post('/login', (req, res) => {
             } 
 
             //CREATION DE SESSION
-            req.session.user({
+            req.session.user = {
                 id : user.userid,
                 username : user.username
-            })
+            }
 
             res.status(200).json({
                 message : "Vous êtes connectés",

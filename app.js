@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const session = require("express-session");
 const bd = require("./bd");
-const MySQLStore = require("express-mysql-store")(session);
+const MySQLStore = require("express-mysql-session")(session);
 
 
 const port = process.env.port || 3000;
