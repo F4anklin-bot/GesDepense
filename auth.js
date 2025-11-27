@@ -2,6 +2,8 @@ const express = require("express");
 const router = express.Router();
 const bd = require('./bd');
 const bcrypt = require("bcrypt");
+const session = require("express-session");
+
 
 router.post('/register', async (req, res) => {
     const { username, secret } = req.body;
@@ -93,5 +95,10 @@ router.post('/login', (req, res) => {
         }
     })
 })
+
+
+
+
+
 
 module.exports = router;
